@@ -62,7 +62,7 @@ fi
 
 # install this progress
 if [ $1x == '-i'x ]; then
-    if [ -d '~/cmd/cmd.sh' ]; then
+    if [ -f '~/cmd/cmd.sh' ]; then
         cd ~/cmd
         git pull
         echo '[~/cmd] folder already exists,if you want reinstall use:[sudo rm -rf ~/cmd&&cd ~/&&git clone https://github.com/rhettli/cmd.git]'
@@ -71,7 +71,7 @@ if [ $1x == '-i'x ]; then
  echo 'installing...   ' $url
 fi
 
-if [ ! -d '~/cmd/cmd.sh' ]; then
+if [ ! -f '~/cmd/cmd.sh' ]; then
     echo 'not find cmd.sh,start installing...'
     sudo git clone --depth 1 https://github.com/rhettli/cmd.git
     sudo rm -rf /usr/bin/cmd
