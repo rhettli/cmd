@@ -71,7 +71,11 @@ if [ $1x == '-i'x ]; then
  echo 'installing...   ' $url
 fi
 
-if [ ! -f '~/cmd/cmd.sh' ]; then
+if [ -f ~/cmd/cmd.sh ]; then
+    echo '==exists=='
+fi
+
+if [ ! -f ~/cmd/cmd.sh ]; then
     echo 'not find cmd.sh,start installing...'
     sudo git clone --depth 1 https://github.com/rhettli/cmd.git
     sudo rm -rf /usr/bin/cmd
