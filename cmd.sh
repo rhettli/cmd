@@ -63,7 +63,7 @@ function install(){
     echo 'not find cmd.sh,start installing...'
     sudo git clone --depth 1 https://github.com/rhettli/cmd.git
     sudo rm -rf /usr/bin/cmd
-    sudo ln -s ~/cmd/cmd.sh /usr/bin/cmd.sh
+    sudo ln -s ~/cmd/cmd.sh /usr/bin/cmd
     echo 'job done'
     echo 'use:[cmd -h] to get help.'
 }
@@ -79,6 +79,10 @@ if [ $1x == '-i'x ]; then
         echo 'installing...   ' $url
         install
     fi
+fi
+
+if [ $1x == '-ri'x ]; then
+    install
 fi
 
 if [ ! -f ~/cmd/cmd.sh ]; then
