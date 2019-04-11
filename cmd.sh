@@ -60,7 +60,7 @@ fi
 #tail -f  `php -i|grep .ini|grep Loaded|cut -d '>' -f 2|xargs cat|grep -e ^error_log.*log|cut -d '=' -f 2- `         #tail php_error_log
 
 function install(){  
-    echo 'not find cmd.sh,start installing...'
+    echo 'installing... wait second...'
     sudo git clone --depth 1 https://github.com/rhettli/cmd.git
     sudo rm -rf /usr/bin/cmd
     sudo ln -s ~/cmd/cmd.sh /usr/bin/cmd
@@ -82,6 +82,7 @@ if [ $1x == '-i'x ]; then
 fi
 
 if [ $1x == '-ri'x ]; then
+    sudo rm -rf ~/cmd
     install
 fi
 
