@@ -59,16 +59,25 @@ fi
 #vim `php -i|grep .ini|grep Loaded|cut -d '>' -f 2 `     #vim php.ini
 #tail -f  `php -i|grep .ini|grep Loaded|cut -d '>' -f 2|xargs cat|grep -e ^error_log.*log|cut -d '=' -f 2- `         #tail php_error_log
 
+function install(){  
+    echo 'not find cmd.sh,start installing...'
+    sudo git clone --depth 1 https://github.com/rhettli/cmd.git
+    sudo rm -rf /usr/bin/cmd
+    sudo ln -s ~/cmd/cmd.sh /usr/bin/cmd.sh
+    echo 'job done'
+    echo 'use:[cmd -h] to get help.'
+}
 
 # install this progress
 if [ $1x == '-i'x ]; then
-    if [ -f '~/cmd/cmd.sh' ]; then
+    if [ -f ~/cmd/cmd.sh ]; then
         cd ~/cmd
         git pull
         echo '[~/cmd] folder already exists,if you want reinstall use:[sudo rm -rf ~/cmd&&cd ~/&&git clone https://github.com/rhettli/cmd.git]'
         echo 'OR : [cmd -ri] when cmd can use normally'
     fi
- echo 'installing...   ' $url
+    echo 'installing...   ' $url
+    install
 fi
 
 if [ -f ~/cmd/cmd.sh ]; then
@@ -76,10 +85,5 @@ if [ -f ~/cmd/cmd.sh ]; then
 fi
 
 if [ ! -f ~/cmd/cmd.sh ]; then
-    echo 'not find cmd.sh,start installing...'
-    sudo git clone --depth 1 https://github.com/rhettli/cmd.git
-    sudo rm -rf /usr/bin/cmd
-    sudo ln -s ~/cmd/cmd.sh /usr/bin/cmd.sh
-    echo 'job done'
-    echo 'use:[cmd -h] to get help.'
+    install
 fi
