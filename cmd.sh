@@ -75,13 +75,10 @@ if [ $1x == '-i'x ]; then
         git pull
         echo '[~/cmd] folder already exists,if you want reinstall use:[sudo rm -rf ~/cmd&&cd ~/&&git clone https://github.com/rhettli/cmd.git]'
         echo 'OR : [cmd -ri] when cmd can use normally'
+    else
+        echo 'installing...   ' $url
+        install
     fi
-    echo 'installing...   ' $url
-    install
-fi
-
-if [ -f ~/cmd/cmd.sh ]; then
-    echo '==exists=='
 fi
 
 if [ ! -f ~/cmd/cmd.sh ]; then
