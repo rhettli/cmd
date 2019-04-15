@@ -6,15 +6,15 @@ url='www'
 
 if [ $1x == '-h'x ]; then
 echo  "[32mUseage for example: [0m"
-h=`cat << EOF
-Version:1.0.0.1 r\n
-    [-tphpe]   will run shell {tail -f php.error_log.log} \r\n
-    [-tnginxe]  will run shell {tail -f nginx.error_log.log} \r\n
-    [-vphpe]  will run shell {vim php.error_log.log} \r\n
-    [-vphpi]   will run shell {vim php.ini} \r\n
-    [-cphpi [flag]]  will find the line with flag in php.ini {Example: sh cmd.sh  -cphpi ^error_log } \r\n
-EOF
-`
+h=`cat "
+Version:1.0.0.1 
+    [-tphpe]   will run shell {tail -f php.error_log.log} 
+    [-tnginxe]  will run shell {tail -f nginx.error_log.log} 
+    [-vphpe]  will run shell {vim php.error_log.log} 
+    [-vphpi]   will run shell {vim php.ini} 
+    [-cphpi [flag]]  will find the line with flag in php.ini {Example: sh cmd.sh  -cphpi ^error_log } 
+" |grep -v cat:|grep -v 'File name too long'`
+
 echo  $h
 fi
 
@@ -80,7 +80,7 @@ if [ $1x == '-i'x ]; then
         install
     fi
 fi
-
+#重新安装，慎重
 if [ $1x == '-ri'x ]; then
     sudo rm -rf ~/cmd
     install
@@ -89,3 +89,9 @@ fi
 if [ ! -f ~/cmd/cmd.sh ]; then
     install
 fi
+
+
+
+# mysqldump --single-transaction --column-statistics=0  -h120.132.11.45 -ufhsdkfjsdklf -p123  oilcn > db_name.sql
+
+
