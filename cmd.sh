@@ -6,7 +6,7 @@ url='www'
 
 if [ $1x == '-h'x ]; then
 echo  "[32mUseage for example: [0m"
-h='
+echo '
 Version:1.0.0.1 
     [-tphpe]   will run shell {tail -f php.error_log.log}  
     [-tnginxe]  will run shell {tail -f nginx.error_log.log}  
@@ -15,7 +15,6 @@ Version:1.0.0.1
     [-cphpi [flag]]  will find the line with flag in php.ini {Example: sh cmd.sh  -cphpi ^error_log } 
 '
 
-echo  $h
 fi
 
 # cat php.ini
