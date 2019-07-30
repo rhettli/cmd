@@ -61,6 +61,7 @@ fi
 
 function install(){  
     echo 'installing... wait second...'
+    cd ~/
     sudo git clone --depth 1 https://github.com/rhettli/cmd.git
     sudo rm -rf /usr/bin/cmd
     sudo ln -s ~/cmd/cmd.sh /usr/bin/cmd
