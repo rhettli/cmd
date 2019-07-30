@@ -6,14 +6,14 @@ url='www'
 
 if [ $1x == '-h'x ]; then
 echo  "[32mUseage for example: [0m"
-h=`cat "
+h='
 Version:1.0.0.1 
-    [-tphpe]   will run shell {tail -f php.error_log.log} 
-    [-tnginxe]  will run shell {tail -f nginx.error_log.log} 
-    [-vphpe]  will run shell {vim php.error_log.log} 
-    [-vphpi]   will run shell {vim php.ini} 
+    [-tphpe]   will run shell {tail -f php.error_log.log}  
+    [-tnginxe]  will run shell {tail -f nginx.error_log.log}  
+    [-vphpe]  will run shell {vim php.error_log.log}  
+    [-vphpi]   will run shell {vim php.ini}
     [-cphpi [flag]]  will find the line with flag in php.ini {Example: sh cmd.sh  -cphpi ^error_log } 
-" |grep -v cat:|grep -v 'File name too long'`
+'
 
 echo  $h
 fi
